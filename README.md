@@ -1,5 +1,4 @@
-# nasastuff
-# title 
+# nasastuff 
 Want to see Earth photos? astronomy photos of the day? or even see the asteroid that is missed the Eaarth.
 
 ## description and user story 
