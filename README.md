@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# nasastuff 
+Want to see Earth photos? astronomy photos of the day? or even see the asteroid that is missed the Eaarth.
 
-## Available Scripts
+## description and user story 
+-It is a React Router website, that display's Nasa's API data.
+-This project helps me for a better understanding of React, and movements in pages.
+-An end user would use this for a more comprehensive essential data point/astronomy basic info app. The Nasa API' has many different properties, it is up to the developer how best to display the properties for the end user, we don't want them (end user) to be overloaded with API data.
 
-In the project directory, you can run:
+## technologies & packages
+-React, Javacript, CSS and HTML
 
-### `npm start`
+## launch/build 
+-using the link provided. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## major problems & solutions
+-State and lifecycle management.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## MVP
+-React router to six components.
+-Have one interation with user for a component.
 
-### `npm test`
+## FUTURE -> databases and relations; APIs; component library
+-adding user account sign up or login.
+-proper searching.
+-more properties to be displayed on screen.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## _code snippet_
+ - fetchAsteroids = async (event) => {
+        
+        const { startDate, endDate } = this.state;
+        try {
+            this.setState({ isLoading: true });
+            const url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=${apiKey}`
+            // console.log(url)
+            const data = await axios.get(url)
+            const keys = Object.keys(data.data.near_earth_objects) //we are pulling the KEYS for each day. A deconstructor cannot work, because the input of the user is constantly moving due to the date selection from the user.
+            console.log("raw data: ", data.data.near_earth_objects)
+            console.log("object keys: ", keys)
+            // keys = ["2019-09-09", "2019-09-08"]
+            const asteroids = []
 
-### `npm run build`
+            for(let i = 0; i < keys.length; i++) {//Using the forloop, due to the fact that the dates are constantly moving from the user selection. Andre Pato worked with me and realized that the .map function is not working to retreive the correct data from the Nasa API.
+                asteroids.push(...data.data.near_earth_objects[keys[i]])
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+-considering that there is a moving targeted date, this code shows how I would pull the keys to then assicate them with the proper data set you are looking for, then push them into an empty array and manipulate it in your render.
