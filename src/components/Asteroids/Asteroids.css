@@ -1,0 +1,36 @@
+.asteroidsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-position: contain;
+
+}
+
+input{
+    margin: 0 10px;
+    justify-content: center;
+    color: black;
+    border: white;
+}
+
+input:hover {
+    margin: 0 10px;
+    justify-content: center;
+    color: black;
+    border: white;
+}
+
+button{
+    margin: 0 10px;
+    color: black;
+    border: white;
+}
+
+button:hover{
+    margin: 0 10px;
+    color: black;
+    border: solid green; 
+    border-width: 5px;
+}
+

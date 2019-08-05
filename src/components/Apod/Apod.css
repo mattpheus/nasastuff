@@ -1,0 +1,24 @@
+.astronPhotoOfDay {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+img {
+    border: solid white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+h4 {
+    padding: 5px;
+    margin: 5px;
+    font-size: 1rem;
+}
+
+p {
+    max-width: 50%;
+    margin: auto;
+}

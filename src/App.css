@@ -1,33 +1,68 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+div.appcontainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-image: url("http://cdn.eso.org/images/screen/alma-jfs-2010-10.jpg");
+  background-position: center 80%;
+  background-size: cover;
+  height: 160vh;
+  color: white;
+  border: solid rgba(23, 58, 104, 0.856);
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Saira Stencil One', cursive;
+}
+
+main{
+  display: flex;
+  justify-content: space-around;
+  max-width: 100%;
+
+}
+
+nav{
+  display: flex;
+  max-width: 100%;
+}
+
+ul{
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  width: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  transform: scale (20);
+  box-shadow: 1px 1px 1px 1px #f3f1f1;
+}
+
+div.container nav main {
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.5);
+  
+}
+
+div.container header nav ul li {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
+
+
+
