@@ -9,7 +9,7 @@ class MarsPhoto extends React.Component {
         super(props)
         this.state = {
             full_name: "",
-            img_src: "",
+            img_src: [],
             name: "",
             data: []
         }
@@ -26,7 +26,7 @@ componentDidMount = () => {
 
             console.log(response.data)
                 this.setState({
-                    data: response.data[0]
+                    data: response.data.photos
                 })
             })
         }
@@ -35,13 +35,21 @@ componentDidMount = () => {
         }
     }
 
+    renderImages = () => {
+        if(this.state.data.length){
+            return this.state.data.map(image => {
+                return <img key={image.id}source={image.image_src} alt={image.rover.name}/>
+            })
+        }
+    }
+
     render(){
         return (
-            <div className="astronPhotoOfDay">
+            <div className="marsPhoto">
                 <h1>Mars Rover Photos</h1>
+                {this.renderImages()}
                 {/* <h3>{`${this.state.data.camera.full_name}`}</h3> */}
-                <img src={`${this.state.data.img_src}`} alt='Not Available' />
-                <h4>Rover Name That Took the Photo!</h4>
+                {/* <img src={`${map(marsPhoto) => this.state.data.img_src)}`} alt='Not Available' /> */}
                 {/* <p>{`${this.state.data.rover.name}`}</p> */}
             
             </div>
